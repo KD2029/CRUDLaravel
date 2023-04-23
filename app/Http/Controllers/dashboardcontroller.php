@@ -188,8 +188,8 @@ class dashboardcontroller extends Controller
                 'food_part_id' => $partId
             ]);
         }
-dd('OK -- last');
-        
+            return 200;
+    
      
     }
 }
