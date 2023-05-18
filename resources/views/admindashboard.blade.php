@@ -28,7 +28,7 @@
 		
 		<div class="col-div-6">
 		<div class="profile">
-
+			
 			<img src="images/user.png" class="pro-img" />
 			<p>Manoj Adhikari <span>UI / UX DESIGNER</span></p>
 		</div>
@@ -74,7 +74,7 @@
 				<p id="1">Users &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
  <a class="button-86" role="button" href="{{ url('crud.create') }}">Create </a>
  &emsp;
-  <a class="button-86" role="button" href={{ url('show') }}>Show </a>{{-- for viewing further details --}}
+  <a class="button-86" role="button" href={{ route('show') }}>Show </a>{{-- for viewing all the details --}}
 
 </p>
 				<br/>

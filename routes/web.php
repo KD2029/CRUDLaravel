@@ -30,10 +30,13 @@ Route::get('delete/{id}',[dashboardcontroller::class,'destroy'])->name('delete')
 Route::post('api_call',[crudcontroller::class,'api_call'])->name('api_call');
 Route::post('/store',[dashboardcontroller::class,'store'])->name('store');
 Route::resource('crud',dashboardcontroller::class);
-Route::get('/admindashboard',[dashboardcontroller::class,'index'])->name('admindashboard');
+Route::get('/show',[dashboardcontroller::class,'index'])->name('show');
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');// user's dashboard
+Route::get('/admindashboard', function () {
+    return view('admindashboard');
+})->middleware(['auth', 'verified'])->name('admindashboard')->middleware('isAdmin');// admin dashboard
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

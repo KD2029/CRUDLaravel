@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\users;
+use App\Models\User;
 use App\Models\foods;
 use App\Models\food_categories;
 use App\Models\food_food_category;
@@ -25,8 +25,8 @@ class dashboardcontroller extends Controller
          */
         public function index(){
             //details for the user table are passed to the admin dashboard
-        $data1= users::all(); 
-        $users= users::all()->count(); 
+        $data1= User::all(); 
+        $User= User::all()->count(); 
            //details for the foods table are passed to the admin dashboard
         $Food=foods::all();
         $Food1=foods::all()->count();
@@ -41,7 +41,7 @@ class dashboardcontroller extends Controller
 
          return view('admindashboard')->with('m', [ 
              'data'=>$data1, 
-             'userno'=>$users, 
+             'userno'=>$User, 
              'nutrients'=>$nutrientdata, 
              'nutrients1'=>$nutrientdata1,
              'foods'=> $Food,
@@ -127,12 +127,13 @@ class dashboardcontroller extends Controller
     
         
     
-        /**
-     * Update the specified resource in storage.
+          
+    /**
+     * update
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
      */
     public function update(Request $request,  $id)
     {
@@ -188,7 +189,7 @@ class dashboardcontroller extends Controller
                 'food_part_id' => $partId
             ]);
         }
-            return 200;
+        return redirect()->route('show')->with('success','Foods row updated successfully');
     
      
     }
