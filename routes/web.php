@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\crudcontroller;
 use App\Http\Controllers\dashboardcontroller;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +47,9 @@ Route::middleware('auth')->group(function () {
     
     
 });
-
+ 
+Route::get('SendEmail',[MailController::class,'index']);
+Route::get('send-sms-notification',[NotificationController::class,'SendSmsNotification']);
 
 
 require __DIR__.'/auth.php';
