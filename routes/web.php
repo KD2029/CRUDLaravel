@@ -6,6 +6,7 @@ use App\Http\Controllers\crudcontroller;
 use App\Http\Controllers\dashboardcontroller;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\UserInputController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,11 @@ Route::middleware('auth')->group(function () {
  
 Route::get('SendEmail',[MailController::class,'index']);
 Route::get('send-sms-notification',[NotificationController::class,'SendSmsNotification']);
+//Get User Input for foods
+Route::get('/auth.register-5/',[UserInputController::class,'index'])->name('Foodinput');
+Route::get('/get-foods/{mealType}',[UserInputController::class,'getFoodsByMealType'])->name('get-foods');
+Route::post('api_call',[crudcontroller::class,'api_call'])->name('api_call');
+
 
 
 require __DIR__.'/auth.php';

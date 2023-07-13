@@ -15,7 +15,8 @@ class MailController extends Controller
     public function index(){
         $mealtime = 'Breakfast';
         $User = User::first()->select('name')->get();
-        $email = User::first()->select('email')->get();
+        // $email = User::first()->select('email')->get();
+        $email ='peterwakoko@gmail.com';
     
         Mail::to($email)->send(new mealReminder($User,$mealtime));
         return response()->json([

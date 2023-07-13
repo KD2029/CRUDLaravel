@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+// Artisan::command('inspire', function () {
+//     $this->comment(Inspiring::quote());
+// })->purpose('Display an inspiring quote');
+
+Artisan::command('talk {name}', function($name){
+ $this->info('Yho,'.$name.'you getting real good at this');
+})->purpose('Learning how to use commands.');
